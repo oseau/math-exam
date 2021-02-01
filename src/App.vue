@@ -1,7 +1,7 @@
 <template>
-  <div class="flex mb-20" v-for="row in rows" :key="row">
+  <div class="flex" v-for="row in rows" :key="row">
     <div
-      class="flex-auto"
+      class="flex-auto pb-20 border-solid border-2"
       v-for="expr in row"
       :key="expr"
       v-html="String.raw`\[${expr}\]`"
