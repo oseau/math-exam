@@ -1,5 +1,9 @@
 <template>
-  <page size="A4" class="flex flex-col" v-for="page in pages" :key="page">
+  <div
+    class="a4 flex flex-col mb-10 mx-auto shadow-2xl print:m-1 print:shadow-none"
+    v-for="page in pages"
+    :key="page"
+  >
     <div class="flex flex-1" v-for="(row, idxRow) in page" :key="row">
       <div
         class="flex-auto border-solid border-2"
@@ -10,7 +14,7 @@
         {{ String.raw`\(${c.expr}\)` }}
       </div>
     </div>
-  </page>
+  </div>
 </template>
 
 <script setup>
@@ -54,7 +58,7 @@ const exprs = String.raw`
 162-(162-135)-(35-19)
 999+599+199
 ====================
-163-(50-18-(153-76+(124-18)
+163-(50-18)-(153-76)+(124-18)
 1365-598
 ====================
 3996+449+98+9
