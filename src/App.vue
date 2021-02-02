@@ -82,21 +82,52 @@ const exprs = String.raw`
 21-20+19-18+17-16+15-14+13-12+11
 ====================
 364-(476-187)+213-(324-236)-150
+3355+4466+9977-3366-4477-9955
 ====================
 12+23-34+45-56+67-78+89-78+67-56+45-34+23+12
 ====================
-3355+4466+9977-3366-4477-9955
-====================
 8457-(7630-4578)+(7845-3076)-(6307-5784)-763
+121\times32\div8
+====================
+4\times(250+8)
+25\times83\times32\times125
+56\times22+56\times33+56\times44
+====================
+222\times33+889\times66
+(25\times3+75+5\times15)+3
+123\times76-124\times75
+====================
+100-99+98-97+96-95+\cdots+12-11+10
+====================
+50+49-48-47+46+45 -43+\cdots-4-3+2+1
+====================
+(1+3+5+7+\cdots+199+201)-(2+4+6+8+\cdots+198+200)
+====================
+1+2+3+4+\cdots+48+49+50+49+48+\cdots+4+3+2+1
+====================
+72\times27\times88\div(9\times11\times12)
+31\times121-88\times125\div(1000+121)
+====================
+555\times445-556\times444
+42\times137-80-15+58\times138-70+15
+====================
+20092009\times2009-20092008\times2008-20092008
+37\times47+36\times53
+====================
+1+2-3+4+5-6+7+8-9+\cdots+97+98-99
+====================
+100\times99-99\times98+98\times97-97\times96+\cdots+4\times3-3\times2+2\times1
+====================
+在不大于1000的自然数中，所有个位数字为8的数之和，与所有个位数字为3的数之和的差是多少？
+====================
+已知：a^2-b^2=(a+b)\times(a-b).计算：20^2-19^2+18^2-17^2+16^2-15^2+\cdots+2^2-1^2
 `;
 
 const pages = [[[]]];
-const ROWS_PER_PAGE = 15;
+const ROWS_PER_PAGE = 17;
 
-for (const [idx, expr] of exprs
-  .split(/\r?\n/)
-  .filter((l) => l.length > 0)
-  .entries()) {
+let idxExpr = 0;
+for (const expr of exprs.split(/\r?\n/).filter((l) => l.length > 0)) {
   if (expr === "====================") {
     if (pages[pages.length - 1].length === ROWS_PER_PAGE) {
       pages.push([[]]);
@@ -105,7 +136,8 @@ for (const [idx, expr] of exprs
     }
   } else {
     const rows = pages[pages.length - 1];
-    rows[rows.length - 1].push({ num: idx + 1, expr });
+    idxExpr++;
+    rows[rows.length - 1].push({ num: idxExpr, expr });
   }
 }
 </script>
