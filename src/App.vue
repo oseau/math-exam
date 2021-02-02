@@ -20,17 +20,23 @@ const rows = String.raw`
 1450-375-203-625
 -----------------
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}`
+
+const pages = [[[]]];
+const ROWS_PER_PAGE = 15;
+
+for (const [idx, expr] of exprs
   .split(/\r?\n/)
-  .filter((line) => line.length > 0)
-  .reduce(
-    (acc, cur) => {
-      if (cur === "-----------------") {
-        acc.push([]);
-      } else {
-        acc[acc.length - 1].push(cur);
-      }
-      return acc;
-    },
-    [[]]
-  );
+  .filter((l) => l.length > 0)
+  .entries()) {
+  if (expr === "====================") {
+    if (pages[pages.length - 1].length === ROWS_PER_PAGE) {
+      pages.push([[]]);
+    } else {
+      pages[pages.length - 1].push([]);
+    }
+  } else {
+    const rows = pages[pages.length - 1];
+    rows[rows.length - 1].push({ num: idx + 1, expr });
+  }
+}
 </script>
