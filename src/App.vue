@@ -144,4 +144,9 @@ for (const expr of exprs.split(/\r?\n/).filter((l) => l.length > 0)) {
     rows[rows.length - 1].push({ num: idxExpr, expr });
   }
 }
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    window?.MathJax?.typeset();
+  });
+});
 </script>
