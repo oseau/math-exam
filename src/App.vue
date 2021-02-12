@@ -1,12 +1,12 @@
 <template>
   <div
-    class="a4 flex flex-col mb-10 mx-auto shadow-2xl print:m-1 print:shadow-none"
+    class="a4 flex flex-col mb-10 mx-auto shadow-2xl print:-my-1 print:shadow-none"
     v-for="page in pages"
     :key="page"
   >
     <div class="flex flex-1" v-for="(row, idxRow) in page" :key="row">
       <div
-        class="flex-auto border-solid border-2"
+        class="flex-auto border-solid border-2 border-b-0 border-l-0"
         v-for="c in row"
         :key="c.num"
       >
