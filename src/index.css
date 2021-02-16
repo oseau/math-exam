@@ -1,7 +1,4 @@
 /* ./src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 mjx-container[jax="CHTML"][display="true"] {
   display: inline-block !important;
