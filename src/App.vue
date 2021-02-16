@@ -12,7 +12,7 @@
         :key="c.num"
       >
         ({{ c.num }})
-        {{ String.raw`\(${c.expr}\)` }}
+        {{ c.expr.includes("[$]") ? c.expr : String.raw`\(${c.expr}\)` }}
       </div>
     </div>
   </div>
