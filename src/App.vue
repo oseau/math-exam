@@ -7,6 +7,7 @@
     <div class="flex flex-1" v-for="(row, idxRow) in page" :key="row">
       <div
         class="flex-auto border-solid border-2 border-b-0 border-l-0"
+        :class="{ 'border-t-0': idxRow === 0 }"
         v-for="c in row"
         :key="c.num"
       >
