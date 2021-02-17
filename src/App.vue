@@ -12,7 +12,7 @@
         :key="c.num"
       >
         ({{ c.num }})
-        {{ c.expr.includes("[$]") ? c.expr : String.raw`\(${c.expr}\)` }}
+        {{ c.expr }}
       </div>
     </div>
   </div>
@@ -20,6 +20,7 @@
 
 <script setup>
 import expressions from "./expressions";
+import containsUnicode from "./containsUnicode";
 
 const pages = [[[]]];
 const ROWS_PER_PAGE = 17;
@@ -35,7 +36,10 @@ for (const expr of expressions.split(/\r?\n/).filter((l) => l.length > 0)) {
   } else {
     const rows = pages[pages.length - 1];
     idxExpr++;
-    rows[rows.length - 1].push({ num: idxExpr, expr });
+    rows[rows.length - 1].push({
+      num: idxExpr,
+      expr: containsUnicode(expr) ? expr : String.raw`\(${expr}\)`,
+    });
   }
 }
 requestAnimationFrame(() => {
