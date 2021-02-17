@@ -90,10 +90,10 @@ export default String.raw`
 1+2+3+4+\cdots+48+49+50+49+48+\cdots+4+3+2+1
 ====================
 72\times27\times88\div(9\times11\times12)
-31\times121-88\times125\div(1000+121)
+31\times121-88\times125\div(1000\div121)
 ====================
 555\times445-556\times444
-42\times137-80-15+58\times138-70+15
+42\times137-80\div15+58\times138-70\div15
 ====================
 20092009\times2009-20092008\times2008-20092008
 37\times47+36\times53
